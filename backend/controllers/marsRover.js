@@ -2,9 +2,9 @@ const axios = require("axios")
 const {getNasaURL} = require("../constants")
 const {getReqQueryParams} = require("./helpers/params")
 
-const baseEndpoint = "planetary/apod"
+const baseEndpoint = "mars-photos/api/v1/rovers"
 
-const apod = async (req, res) => {
+const marsRover = async (req, res) => {
   try {
     const queryParams = getReqQueryParams(req)
     const result = await axios.get(getNasaURL(baseEndpoint))
@@ -17,5 +17,5 @@ const apod = async (req, res) => {
 }
 
 module.exports = {
-  apod
+  marsRover
 }
