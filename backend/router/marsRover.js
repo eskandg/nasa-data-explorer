@@ -1,5 +1,5 @@
 const {marsRover} = require("../controllers/marsRover")
 
 module.exports = (router) => {
-  router.get("/marsRover", marsRover)
+  router.get("/mars-rover", marsRover)
 }

@@ -1,13 +1,17 @@
 const axios = require("axios")
 const {getNasaURL} = require("../constants")
-const {getReqQueryParams} = require("./helpers/params")
+const {getReqQueryParams, getReqQueryParamsString} = require("./helpers/params")
+
+const {marsRoverValidator} = require("../validators/marsRoverValidator")
 
 const baseEndpoint = "mars-photos/api/v1/rovers"
 
 const marsRover = async (req, res) => {
   try {
     const queryParams = getReqQueryParams(req)
-    const result = await axios.get(getNasaURL(baseEndpoint))
+    marsRoverValidator(req, queryParams)
+
+    const result = await axios.get(getNasaURL(baseEndpoint) + getReqQueryParamsString(req))
 
     res.json(result.data)
   }
