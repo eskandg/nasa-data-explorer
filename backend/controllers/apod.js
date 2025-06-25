@@ -10,7 +10,6 @@ const apod = async (req, res) => {
     const queryParams = getReqQueryParams(req)
     apodValidator(req, queryParams)
     
-    console.log(getNasaURL(baseEndpoint, getReqQueryParamsString(req)))
     const result = await axios.get(getNasaURL(baseEndpoint, getReqQueryParamsString(req)))
 
     res.json(result.data)
