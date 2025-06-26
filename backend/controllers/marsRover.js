@@ -16,6 +16,7 @@ const marsRover = async (req, res) => {
   }
   catch (e) {
     console.error(e)
+    res.json(e.response.data)
   }
 }
 

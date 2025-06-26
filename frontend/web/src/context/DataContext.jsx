@@ -11,8 +11,9 @@ const DataContext = createContext();
  * @returns {ReactNode} The wrapped child components.
  */
 export const DataProvider = ({ children }) => {
+  const apiUrl = process.env.REACT_APP_API_URL
   return (
-    <DataContext.Provider value={{}}>
+    <DataContext.Provider value={{apiUrl}}>
       {children}
     </DataContext.Provider>
   );

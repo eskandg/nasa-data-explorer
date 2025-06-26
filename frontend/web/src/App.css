@@ -1,38 +1,49 @@
-.App {
+body {
+  font-family: "Public Sans Web", sans-serif;
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/955/69/70/minimalism-space-stars-wallpaper-preview.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-y: hidden;
+}
+
+.MuiImageList-root {
+  margin: 0;
+}
+
+.MuiImageList-root.explorer-options-list {
+  display: flex;
+  flex-direction: row;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.MuiImageListItemBar-subtitle.explorer-options-subtitle {
+  white-space: normal
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.explorer-options-img {
+  width: 50vw!important;
+}
+
+.MuiButtonBase-root.explorer-options-button-icon {
+  color: gray;
+}
+
+li:hover .MuiButtonBase-root.explorer-options-button-icon {
+  color: whitesmoke;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+/* mobile devices */
+@media (max-width: 767px) {
+  .MuiImageList-root.explorer-options-list {
+    flex-direction: column;
+    justify-content: space-evenly;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  .explorer-options-img {
+    width: 100%!important;
   }
 }
