@@ -5,9 +5,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useContextData } from "../context/DataContext";
 
-const NasaExplorationOptions = ({style = {}}) => {
-    const {apiUrl} = useContextData()
-    const [options, setOptions] = useState([])
+const NasaExplorationOptions = ({onClick, style = {}}) => {
+    const {apiUrl, setMarsRovers} = useContextData()
+    const [options, setOptions] = useState({})
 
     const setupOptionsData = async () => {
         const apodOption = await axios.get(`${apiUrl}/apod`)
@@ -24,6 +24,8 @@ const NasaExplorationOptions = ({style = {}}) => {
             for (const rover of rovers) {
                 marsRoverNames.push(rover.name)
             }
+
+            setMarsRovers(rovers)
             
             return {
                 data: rovers, 
@@ -32,29 +34,34 @@ const NasaExplorationOptions = ({style = {}}) => {
                 subtitle: `Explore photos on the surface of Mars taken by the ${marsRoverNames.join(", ")} rovers!`
             }
         })
+        .catch((e) => {
+            console.error(e)
+            return null
+        })
 
-        setOptions([
-            apodOption,
-            marsRoverOption
-        ])
+
+        setOptions({
+            apod: apodOption,
+            marsRover: marsRoverOption
+        })
+    }
+
+    const handleOnClick = (optionSelected) => {
+        onClick(optionSelected)
     }
 
     useEffect(() => {
         setupOptionsData()
     }, [])
 
-    // useEffect(() => {
-    //     console.log(options)
-    // }, [options])
-
     return (
         <ImageList className="explorer-options-list" sx={{width: "100vw", height: "100vh"}}>
-            {options.map((item) => (
+            {Object.entries(options).map(([name, item]) => (
                 <ImageListItem 
                     key={item.url}
+                    onClick={() => handleOnClick({name: name, title: item.title})}
                     classes={{img: "explorer-options-img"}}
                     style={{cursor: "pointer"}}
-                    
                 >
                     <img
                         src={`${item.url}`}

@@ -12,8 +12,10 @@ const DataContext = createContext();
  */
 export const DataProvider = ({ children }) => {
   const apiUrl = process.env.REACT_APP_API_URL
+  const [marsRovers, setMarsRovers] = useState([])
+
   return (
-    <DataContext.Provider value={{apiUrl}}>
+    <DataContext.Provider value={{apiUrl, marsRovers, setMarsRovers}}>
       {children}
     </DataContext.Provider>
   );

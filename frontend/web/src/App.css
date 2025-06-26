@@ -1,11 +1,14 @@
 body {
   font-family: "Public Sans Web", sans-serif;
-  background-image: url("https://c4.wallpaperflare.com/wallpaper/955/69/70/minimalism-space-stars-wallpaper-preview.jpg");
+  overflow-y: hidden;
+}
+
+.space-background {
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/955/69/70/minimalism-space-stars-wallpaper-preview.jpg")!important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  overflow-y: hidden;
 }
 
 .MuiImageList-root {
@@ -33,7 +36,12 @@ body {
 li:hover .MuiButtonBase-root.explorer-options-button-icon {
   color: whitesmoke;
   cursor: pointer;
-  transition: 0.3s ease-in;
+  transition: 0.6s ease-in-out;
+}
+
+#explorer-navigate-back:hover {
+  color: whitesmoke;
+  transition: 0.6s ease-in-out;
 }
 
 /* mobile devices */
