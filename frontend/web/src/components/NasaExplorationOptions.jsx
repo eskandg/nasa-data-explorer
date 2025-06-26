@@ -39,7 +39,6 @@ const NasaExplorationOptions = ({onClick, style = {}}) => {
             return null
         })
 
-
         setOptions({
             apod: apodOption,
             marsRover: marsRoverOption

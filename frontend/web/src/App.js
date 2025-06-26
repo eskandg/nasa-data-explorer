@@ -1,6 +1,4 @@
 import './App.css';
-import {AppBar, Dialog, Divider, IconButton, Toolbar, Typography} from "@mui/material"
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NasaExplorationOptions from './components/NasaExplorationOptions';
 import { useState } from 'react';
 import Explorer from './components/Explorer';
