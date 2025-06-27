@@ -4,12 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { DataProvider } from './context/DataContext';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <DataProvider>
-      <App/>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <App/>
+      </LocalizationProvider>
     </DataProvider>
   </React.StrictMode>
 );

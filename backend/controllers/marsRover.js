@@ -10,13 +10,20 @@ const marsRover = async (req, res) => {
     const queryParams = getReqQueryParams(req)
     marsRoverValidator(req, queryParams)
 
-    const result = await axios.get(getNasaURL(baseEndpoint, getReqQueryParamsString(req)))
+    const rover = queryParams?.rover?.toLowerCase() ?? null
+    if (rover) {
+      delete queryParams["rover"]
+    }
+
+    const endpoint = rover ? `${baseEndpoint}/${rover}/photos` : baseEndpoint
+
+    const result = await axios.get(getNasaURL(endpoint), {params: queryParams})
 
     res.json(result.data)
   }
   catch (e) {
     console.error(e)
-    res.json(e.response.data)
+    res.json(e)
   }
 }
 

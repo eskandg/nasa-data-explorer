@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# NASA Data Explorer - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend web application for the NASA Data Explorer project, built with React. It provides a user interface to interact with the backend API and display data from NASA's Astronomy Picture of the Day (APOD) and Mars Rover Photos APIs.
 
 ## Available Scripts
 
@@ -37,7 +37,33 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Environment Variables
+
+To connect the frontend to the backend API, create a `.env` file in the `frontend/web` directory with the following variable:
+
+```
+REACT_APP_API_URL=...
+```
+
+If your backend is running on a different URL or port, update this value accordingly.
+
+## Key Components
+
+*   **`App.js`**: The main application component, handling routing and overall layout.
+*   **`Explorer.jsx`**: A component that dynamically renders either `ApodSearch` or `MarsRoverSearch` based on user selection.
+*   **`NasaExplorationOptions.jsx`**: Displays options for the user to choose between APOD and Mars Rover searches.
+*   **`ApodSearch.jsx`**: Component for searching and displaying Astronomy Picture of the Day data.
+*   **`MarsRoverSearch.jsx`**: Component for searching and displaying Mars Rover Photos data.
+*   **`SearchComponents.jsx`**: Contains reusable UI components for search functionalities (e.g., date pickers, image carousels).
+*   **`DataContext.jsx`**: Provides a React Context for managing and sharing data across components.
+
+## API Interaction
+
+The frontend application communicates with the backend API (running on `http://localhost:8000` in development) to fetch data. It uses `axios` for HTTP requests.
+
+For example, to fetch APOD data, it makes a request to the `/apod` endpoint of the backend. Similarly, for Mars Rover photos, it interacts with the `/mars-rover` endpoint.
 
 ## Learn More
 

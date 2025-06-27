@@ -13,6 +13,7 @@ body {
 
 .MuiImageList-root {
   margin: 0;
+  overflow-x: hidden;
 }
 
 .MuiImageList-root.explorer-options-list {
@@ -42,6 +43,30 @@ li:hover .MuiButtonBase-root.explorer-options-button-icon {
 #explorer-navigate-back:hover {
   color: whitesmoke;
   transition: 0.6s ease-in-out;
+}
+
+.nasa-exploration-options {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+.explorer-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.explorer-search {
+  background: "rgb(0 105 220 / 87%)"; 
+  padding: 8px; 
+  width: fit-content;
+  margin-left: auto; 
+  margin-right: auto; 
+  border-radius: 5px;
 }
 
 /* mobile devices */
