@@ -115,7 +115,7 @@ const Explorer = ({ open, onClose, explorer }) => {
 
                             <Box mt={2}>
                                 <Typography color="white" gutterBottom>
-                                    {item?.title ?? `${item.rover?.name} Rover - ${item.camera?.full_name}`}
+                                    {item?.title ? `${item.title} | ${item.date}` : `${item.rover?.name} Rover - ${item.camera?.full_name}`}
                                 </Typography>
                                 <Box
                                     sx={{
