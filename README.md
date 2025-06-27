@@ -64,6 +64,12 @@ cd ../frontend/web
 npm install
 ```
 
+Create a `.env` file in the `frontend` directory with your API URL:
+
+```
+REACT_APP_API_URL=...
+```
+
 ## Running the Application
 
 ### 1. Start the Backend Server
